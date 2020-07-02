@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "typescript-webpart-client-side-solution",
+    "id": "f8963370-475c-4703-8002-a0019cd7156e",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/typescript-webpart.sppkg"
+  }
+}

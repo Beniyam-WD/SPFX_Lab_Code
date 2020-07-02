@@ -1,0 +1,12 @@
+{
+    "name": "mynodepoject",
+    "version": "1.0.0",
+    "description": "My Sample Project",
+    "main": "app.js",
+    "scripts": {
+        "test": "Welcome to node project",
+        "start": "node app.js"
+    },
+    "author": "JPOWER4",
+    "license": "ISC"
+}

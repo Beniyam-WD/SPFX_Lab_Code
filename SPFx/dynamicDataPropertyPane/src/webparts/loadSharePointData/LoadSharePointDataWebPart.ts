@@ -88,7 +88,7 @@ export default class LoadSharePointDataWebPart extends BaseClientSideWebPart <IL
         let itemcreatedstr:string = listItem.Created;
         let itemTime:Date = new Date(itemcreatedstr);
 
-        strHtml += `<div class="${styles.row}">`;
+        strHtml += `<div class="${styles.row1}">`;
         strHtml += `<div class="${styles.cell}"><p>${listItem.Title}</p></div>`;
         if(this.properties.checkbox1)
         {

@@ -1,10 +1,10 @@
 {
   "@microsoft/generator-sharepoint": {
-    "isCreatingSolution": false,
+    "isCreatingSolution": true,
     "environment": "spo",
     "version": "1.10.0",
-    "libraryName": "dynamic-data-property-pane",
-    "libraryId": "90f1803a-c6a7-45db-b011-bd75ef956381",
+    "libraryName": "webpart-property-pane",
+    "libraryId": "0f2b7046-0a93-44ce-b019-a4cec84e055e",
     "packageManager": "npm",
     "isDomainIsolated": false,
     "componentType": "webpart"

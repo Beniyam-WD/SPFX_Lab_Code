@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "typescript-demo-ex-1-client-side-solution",
+    "id": "22eeb71c-6e6e-4be0-8595-f99a40a1434c",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/typescript-demo-ex-1.sppkg"
+  }
+}

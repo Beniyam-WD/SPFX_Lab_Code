@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "webpart-property-pane-client-side-solution",
+    "id": "0f2b7046-0a93-44ce-b019-a4cec84e055e",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/webpart-property-pane.sppkg"
+  }
+}

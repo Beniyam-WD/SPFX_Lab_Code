@@ -1,0 +1,12 @@
+{
+    "name": "secondproject",
+    "version": "1.0.0",
+    "description": "Second typescript project#",
+    "main": "index.js",
+    "scripts": {
+        "test": "Sample content",
+        "start": "node /dist/index.js"
+    },
+    "author": "JPOWER4",
+    "license": "ISC"
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "typescriptusecase-1-client-side-solution",
+    "id": "8a96ab2b-ee80-4aa5-9fce-52e27bb95d98",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/typescriptusecase-1.sppkg"
+  }
+}

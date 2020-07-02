@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/loadSharePointData/LoadSharePointDataWebPart.manifest.json"
         }
       ]
+    },
+    "dynamic-drop-down-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/dynamicDropDown/DynamicDropDownWebPart.js",
+          "manifest": "./src/webparts/dynamicDropDown/DynamicDropDownWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "LoadSharePointDataWebPartStrings": "lib/webparts/loadSharePointData/loc/{locale}.js"
+    "LoadSharePointDataWebPartStrings": "lib/webparts/loadSharePointData/loc/{locale}.js",
+    "DynamicDropDownWebPartStrings": "lib/webparts/dynamicDropDown/loc/{locale}.js"
   }
 }
