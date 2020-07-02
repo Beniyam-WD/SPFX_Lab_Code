@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "dynamic-data-property-pane-client-side-solution",
+    "id": "90f1803a-c6a7-45db-b011-bd75ef956381",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/dynamic-data-property-pane.sppkg"
+  }
+}
