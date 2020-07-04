@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "oob-property-pane-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/oobPropertyPane/OobPropertyPaneWebPart.js",
+          "manifest": "./src/webparts/oobPropertyPane/OobPropertyPaneWebPart.manifest.json"
+        }
+      ]
+    },
+    "custom-property-pane-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/customPropertyPane/CustomPropertyPaneWebPart.js",
+          "manifest": "./src/webparts/customPropertyPane/CustomPropertyPaneWebPart.manifest.json"
+        }
+      ]
+    },
+    "property-pane-custom-field-webpart-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/propertyPaneCustomFieldWebpart/PropertyPaneCustomFieldWebpartWebPart.js",
+          "manifest": "./src/webparts/propertyPaneCustomFieldWebpart/PropertyPaneCustomFieldWebpartWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "OobPropertyPaneWebPartStrings": "lib/webparts/oobPropertyPane/loc/{locale}.js",
+    "CustomPropertyPaneWebPartStrings": "lib/webparts/customPropertyPane/loc/{locale}.js",
+    "PropertyPaneCustomFieldWebpartWebPartStrings": "lib/webparts/propertyPaneCustomFieldWebpart/loc/{locale}.js"
+  }
+}
