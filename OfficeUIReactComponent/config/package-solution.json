@@ -1,0 +1,13 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "office-ui-react-component-client-side-solution",
+        "id": "7d018427-8a38-46cb-b18a-7ae64f690988",
+        "version": "1.0.0.0",
+        "includeClientSideAssets": true,
+        "isDomainIsolated": false
+    },
+    "paths": {
+        "zippedPackage": "solution/office-ui-react-component.sppkg"
+    }
+}

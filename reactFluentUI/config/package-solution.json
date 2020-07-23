@@ -1,0 +1,14 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "react-fluent-ui-solution-client-side-solution",
+        "id": "6abd01fd-d892-458a-8edb-c0d3e30667e5",
+        "version": "1.0.0.0",
+        "includeClientSideAssets": true,
+        "skipFeatureDeployment": true,
+        "isDomainIsolated": false
+    },
+    "paths": {
+        "zippedPackage": "solution/react-fluent-ui-solution.sppkg"
+    }
+}
