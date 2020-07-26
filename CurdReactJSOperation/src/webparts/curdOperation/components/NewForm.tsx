@@ -116,48 +116,71 @@ export class NewForm extends React.Component<INewFormProps,INewFormState,{}>{
       </div>
     );
   }
+  private _onChangePeoplePicker = (items?:any) =>{
+    let loginname ="";
+    let UserID:string = "";
+    items.map(item=>(
+      loginname = item.itemID
+    ));
+    this._getUserID(loginname);
+  }
 
-private _getUserID(userAccountName):any{
-    const url:string = '${this.props.siteUrl}/_api/web/siteusers(@v)?@v=' +  encodeURIComponent(userAccountName);
+private _getUserID(userAccountName):void{
+  if(userAccountName)
+  {
+    userAccountName = "'" + userAccountName + "'";
+    userAccountName = encodeURIComponent(userAccountName);
+    const url:string = `${this.props.siteUrl}/_api/web/siteusers(@v)?@v=${userAccountName}`;
+      console.log(url);
       this.props.spHttpClient.get(url,SPHttpClient.configurations.v1,
-        {
-          headers: {
-            'Accept': 'application/json;odata=verbose',
-          }
-        })
-    .then((data)=>{
-      console.log(data);
-      return ''; //data.d.Id;
-    },(error:any):void=>{
-      console.log('error');
-    });
-}
+          {
+            headers: {
+              'Accept': 'application/json;odata=verbose',
+              'odata-version': ''
+            }
+          })
+      .then((response:SPHttpClientResponse)=>{
+        return response.json();
+      },(error:any):void=>{
+        console.log('error');
+      })
+      .then((jsonresponse:any)=>{
+        let userid:string =  jsonresponse.d.Id;
+        this.setState(
+          {Organizer:userid}
+          );
+      });
 
+  }
+}
 
 private _SaveNewItem(event):void{
   let Title = this.state.Title;
   let EventDetails = this.state.EventDetails;
   let EventDate = this.state.EventDate;
   let EventType = this.state.EventType;
+
   let Organizer = this.state.Organizer;
 
   this.getListItemEntityTypeName()
       .then((listItemEntityTypeName: string): Promise<SPHttpClientResponse> => {
         const body: string = JSON.stringify({
-          '__metadata': {
+          '__metadata':
+          {
             'type': listItemEntityTypeName
           },
           'Title': Title,
-          'Event Details':EventDetails,
-          'Organizer': Organizer,
-          //'Event Date': EventDate,
-          //'EventType': EventType,
+          'EventDetails':EventDetails,
+          'OrganizerId':Number(Organizer), //{'results':[Organizer]},
+          'EventDate': EventDate.toISOString(),
+          //'EventType': {"__metadata":{"type":"Collection(Edm.String)"},"results":[EventType]}  // multi selector
+          'EventType': EventType
         });
         return this.props.spHttpClient.post(`${this.props.siteUrl}/_api/web/lists/getbytitle('SPFxEvents')/items`,
           SPHttpClient.configurations.v1,
           {
             headers: {
-              'Accept': 'application/json;odata=nometadata',
+              'Accept': 'application/json;odata=verbose',
               'Content-type': 'application/json;odata=verbose',
               'odata-version': ''
             },
@@ -171,18 +194,6 @@ private _SaveNewItem(event):void{
 
 
 }
-
-private _onChangePeoplePicker = (items?:any) =>{
-  let loginname ="";
-  items.map(item=>(
-    loginname = item.itemID
-  ));
-  let UserID:string = this._getUserID(loginname);
-  this.setState(
-    {Organizer:UserID}
-  );
-}
-
 
   //Get Peoples to list
   private onResolveSuggestions = (searchText: string, currentPersonas: IPersonaProps[]): IPersonaProps[] | Promise<IPersonaProps[]> => {
