@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "curd-operation-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/curdOperation/CurdOperationWebPart.js",
+          "manifest": "./src/webparts/curdOperation/CurdOperationWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CurdOperationWebPartStrings": "lib/webparts/curdOperation/loc/{locale}.js"
+  }
+}

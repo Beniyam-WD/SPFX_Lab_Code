@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "curd-react-js-operation-client-side-solution",
+    "id": "385dd391-eb73-4293-8e1f-58fb803e24b1",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/curd-react-js-operation.sppkg"
+  }
+}
