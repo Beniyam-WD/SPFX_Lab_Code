@@ -1,0 +1,27 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "spfx-graph-api-consume-data-client-side-solution",
+        "id": "8ec7fb56-1552-4509-bbee-9c073c667569",
+        "version": "1.0.0.0",
+        "includeClientSideAssets": true,
+        "isDomainIsolated": true,
+        "skipFeatureDeployment": true,
+        "webApiPermissionRequests": [{
+                "resource": "Microsoft Graph",
+                "scope": "User.ReadBasic.All"
+            },
+            {
+                "resource": "Microsoft Graph",
+                "scope": "Sites.Read.All"
+            },
+            {
+                "resource": "Microsoft Graph",
+                "scope": "Sites.ReadWrite.All"
+            }
+        ]
+    },
+    "paths": {
+        "zippedPackage": "solution/spfx-graph-api-consume-data.sppkg"
+    }
+}
