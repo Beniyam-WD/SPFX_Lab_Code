@@ -66,6 +66,11 @@ export default class CurdOperation extends React.Component<ICurdOperationProps,I
       showNewForm:true
     });
   }
+  public hideNewForm(event):void{
+    this.setState({
+      showNewForm:false
+    });
+  }
 
 private getItems():Promise<IListItem[]>{
   return new Promise<IListItem[]>((resolve,reject)=>{

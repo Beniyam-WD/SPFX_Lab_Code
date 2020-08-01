@@ -8,6 +8,7 @@ import { Dropdown, DropdownMenuItemType, IDropdownStyles, IDropdownOption } from
 import { assign } from '@microsoft/sp-lodash-subset';
 import {IListItem} from './IListItem';
 
+
 export interface INewFormProps
 {
   siteUrl:string;
@@ -24,12 +25,6 @@ const limitedSearchAdditionalProps:IBasePickerSuggestionsProps={
 };
 
 
-const options: IDropdownOption[] =[
-  {key :'Conference', text:'Conference'},
-  {key :'Training', text:'Training'},
-  {key :'Town Hall Meeting', text:'Town Hall Meeting'},
-];
-
 const dropdownStyles: Partial<IDropdownStyles> = {
   dropdown: { width: 300 },
 };
@@ -41,6 +36,7 @@ export interface INewFormState{
   EventDetails?:string;
   EventType?:string;
   UserID?:string;
+  spItems?:IDropdownOption[];
 }
 
 const limitedSearchSuggestionProps:IBasePickerSuggestionsProps = assign(limitedSearchAdditionalProps,suggestionProps);
@@ -58,12 +54,23 @@ export class NewForm extends React.Component<INewFormProps,INewFormState,{}>{
       Organizer:"",
       EventDetails:"",
       EventType:"",
-      UserID:'0'
+      UserID:'0',
+      spItems:[]
     };
+  }
+
+  public componentWillMount():void{
+    this.getEvents()
+    .then((_items:IDropdownOption[])=>{
+      this.setState({
+        spItems:_items
+      });
+    });
   }
 
   public render():React.ReactElement<INewFormProps>
   {
+
     return(
       <div>
       <div>Welcome to New Form</div>
@@ -106,7 +113,7 @@ export class NewForm extends React.Component<INewFormProps,INewFormState,{}>{
         <label>Event Type</label>
         <Dropdown id="drd_eventtype"
         placeholder="Select the Event Type"
-        options={options}
+        options={this.state.spItems}
         styles={dropdownStyles}
         onChange={(event,value)=>{this.setState({EventType:value.text});}}
         />
@@ -191,8 +198,6 @@ private _SaveNewItem(event):void{
         return response.json();
       });
 
-
-
 }
 
   //Get Peoples to list
@@ -268,6 +273,47 @@ private _SaveNewItem(event):void{
           this.listItemEntityTypeName = response.ListItemEntityTypeFullName;
           resolve(this.listItemEntityTypeName);
         });
+    });
+  }
+
+
+  private getEvents():Promise<IDropdownOption[]>{
+    return new Promise<IDropdownOption[]>((resolve,reject)=>{
+      const url:string = `${this.props.siteUrl}/_api/lists/getbytitle('EventTypes')/items?select=Id,Title`;
+        console.log(url);
+        this.props.spHttpClient.get(url,SPHttpClient.configurations.v1,
+          {
+            headers: {
+              'Accept': 'application/json;odata=nometadata',
+              'odata-version': ''
+            }
+          })
+      .then((response:SPHttpClientResponse)=>{
+        return response.json();
+      },(error:any):void=>{
+        reject(error);
+      }
+      )
+      .then((jsonresponse:any)=>{
+        let drpdownoptions:IDropdownOption[]=[];
+        /*console.log(jsonresponse.value.length);
+        if(jsonresponse.value.length ==0)
+        {
+          console.log('No records found');
+        }
+        else{
+          console.log('Count : '+ jsonresponse.value.length);
+        }*/
+
+        for(let i=0;i<jsonresponse.value.length;i++)
+        {
+          drpdownoptions.push({
+          key:jsonresponse.value[i].Id,
+          text:jsonresponse.value[i].Title,
+          });
+          resolve(drpdownoptions);
+        }
+      });
     });
   }
 
