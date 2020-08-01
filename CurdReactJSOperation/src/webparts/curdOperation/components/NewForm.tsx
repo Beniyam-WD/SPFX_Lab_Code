@@ -14,6 +14,7 @@ export interface INewFormProps
   siteUrl:string;
   spHttpClient:SPHttpClient;
   maxNrOfUsers?:number;
+  onHideNewform?:HideFormCallback;
 }
 
 const suggestionProps: IBasePickerSuggestionsProps={
@@ -38,6 +39,8 @@ export interface INewFormState{
   UserID?:string;
   spItems?:IDropdownOption[];
 }
+
+export type HideFormCallback = (hidenewform:boolean)=>void;
 
 const limitedSearchSuggestionProps:IBasePickerSuggestionsProps = assign(limitedSearchAdditionalProps,suggestionProps);
 
@@ -162,6 +165,7 @@ private _getUserID(userAccountName):void{
 }
 
 private _SaveNewItem(event):void{
+
   let Title = this.state.Title;
   let EventDetails = this.state.EventDetails;
   let EventDate = this.state.EventDate;
@@ -198,7 +202,11 @@ private _SaveNewItem(event):void{
         return response.json();
       });
 
+      this.props.onHideNewform(false);
+
 }
+
+
 
   //Get Peoples to list
   private onResolveSuggestions = (searchText: string, currentPersonas: IPersonaProps[]): IPersonaProps[] | Promise<IPersonaProps[]> => {

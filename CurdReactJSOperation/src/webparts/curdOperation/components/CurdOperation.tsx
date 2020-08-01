@@ -51,7 +51,7 @@ export default class CurdOperation extends React.Component<ICurdOperationProps,I
             <div className={ styles.column }>
             <div>
                <PrimaryButton text="New Item" onClick={this.showNewForm.bind(this)}/>
-               {this.state.showNewForm? <NewForm siteUrl={this.props.siteUrl} spHttpClient={this.props.spHttpClient}/>: null }
+               {this.state.showNewForm? <NewForm siteUrl={this.props.siteUrl} spHttpClient={this.props.spHttpClient}  onHideNewform={this.hideNewForm.bind(this)}/>: null }
             </div>
             </div>
             </div>
@@ -66,7 +66,7 @@ export default class CurdOperation extends React.Component<ICurdOperationProps,I
       showNewForm:true
     });
   }
-  public hideNewForm(event):void{
+  private hideNewForm(event):void{
     this.setState({
       showNewForm:false
     });
