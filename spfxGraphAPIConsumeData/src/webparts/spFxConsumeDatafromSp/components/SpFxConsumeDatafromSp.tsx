@@ -65,7 +65,7 @@ export default class SpFxConsumeDatafromSp extends React.Component<ISpFxConsumeD
     .getClient()
     .then((client:MSGraphClient):void =>{
         client
-        .api("sites('root')/lists('SPFxContacts')/items?expand=fields")
+        .api("sites('jpower4mvp.sharepoint.com,d23ab611-4170-4420-80bd-280cfee90c39,74a98147-7e90-4660-90c4-7b6a9b804f25')/lists('SPFxContacts')/items?expand=fields")
         .version("v1.0")
         .get((err,res)=>{
           if(err){
