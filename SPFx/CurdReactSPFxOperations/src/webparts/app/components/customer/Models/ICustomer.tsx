@@ -3,4 +3,5 @@ export interface ICustomer {
     name: string;
     value: string;
     contactnumber:string;
+    designation:string;
 }

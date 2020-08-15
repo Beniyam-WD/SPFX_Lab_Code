@@ -4,4 +4,5 @@ export class Customer implements ICustomer {
    public name: string;
    public value: string;
    public contactnumber:string;
+   public designation:string;
 }

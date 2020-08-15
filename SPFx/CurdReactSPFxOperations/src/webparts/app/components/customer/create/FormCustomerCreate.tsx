@@ -44,6 +44,9 @@ export default class FormCustomerCreate extends React.Component<{}, IFormCustome
         <TextField disabled={this.state.isBusy} label="Contact Number" name="text" value={this.state.customer.contactnumber}
           onChange={(event, value) => { const { customer } = this.state; customer.contactnumber = value; this.setState({ customer: customer }); }} />
 
+        <TextField disabled={this.state.isBusy} label="Designation" name="text" value={this.state.customer.designation}
+         onChange ={(event,value) => {const {customer} = this.state; customer.designation = value; this.setState({customer:customer});}}/>
+
         <div >
           <Separator />
           <PrimaryButton disabled={this.state.isBusy} onClick={this._CreateCustomer}>Save</PrimaryButton>

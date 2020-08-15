@@ -40,7 +40,7 @@ export class CustomersDataProvider implements ICustomersDataProvider {
           //if(typeof customer.Title!='undefined' && customer.Title
           // && typeof customer.Id!='undefined' && customer.Id &&
           // typeof customer.LastName!='undefined' && customer.LastName){
-          customers.push({ name: this.replaceNullsByEmptyString(customer.Title), key: customer.Id, value: this.replaceNullsByEmptyString(customer.LastName),contactnumber: this.replaceNullsByEmptyString(customer.ContactNumber) });
+          customers.push({ name: this.replaceNullsByEmptyString(customer.Title), key: customer.Id, value: this.replaceNullsByEmptyString(customer.LastName),contactnumber: this.replaceNullsByEmptyString(customer.ContactNumber),designation:this.replaceNullsByEmptyString(customer.Designation) });
           // }
 
         }
@@ -56,7 +56,8 @@ export class CustomersDataProvider implements ICustomersDataProvider {
     return sp.web.lists.getByTitle(LIST_CUSTOMER).items.add({
       Title: itemCreated.name,
       LastName: itemCreated.value,
-      ContactNumber:itemCreated.contactnumber
+      ContactNumber:itemCreated.contactnumber,
+      Designation:itemCreated.designation
     }).then((iar: IItemAddResult) => {
       console.log(iar);
       customers.push(itemCreated);
@@ -71,7 +72,8 @@ export class CustomersDataProvider implements ICustomersDataProvider {
     return sp.web.lists.getByTitle(LIST_CUSTOMER).items.getById(id).update({
       Title: itemUpdated.name,
       LastName: itemUpdated.value,
-      ContactNumber:itemUpdated.contactnumber
+      ContactNumber:itemUpdated.contactnumber,
+      Designation:itemUpdated.designation
     }).then((result_customers) => {
       console.log(result_customers);
       customers.push(itemUpdated);

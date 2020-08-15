@@ -16,7 +16,7 @@ import { ICustomer } from '../Models/ICustomer';
 import FormCustomerEdit from '../edit/FormCustomerEdit';
 import { getId } from 'office-ui-fabric-react/lib/Utilities';
 import Modal from 'office-ui-fabric-react/lib/Modal';
-import { IconButton, DefaultButton, Button } from 'office-ui-fabric-react/lib/Button';
+import { IconButton, DefaultButton, Button, PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 const classNames = mergeStyleSets({
   fileIconHeaderIcon: {
     padding: 0,
@@ -132,6 +132,23 @@ export class DetailsListCustomers extends React.Component<{}, IDetailsListCustom
         isPadded: true
       },
       {
+        key: 'column4',
+        name: 'Designation',
+        fieldName: 'designation',
+        minWidth: 100,
+        maxWidth: 200,
+        isRowHeader: true,
+        isResizable: true,
+        isSorted: true,
+        isSortedDescending: false,
+        sortAscendingAriaLabel: 'Sorted A to Z',
+        sortDescendingAriaLabel: 'Sorted Z to A',
+        onColumnClick: this._onColumnClick,
+        data: 'string',
+        isPadded: true
+
+      },
+      {
         key: 'delete',
         name: '',
         fieldName: 'id',
@@ -171,11 +188,12 @@ export class DetailsListCustomers extends React.Component<{}, IDetailsListCustom
     return (
       <Fabric>
         <Separator />
-        <CommandBarCustomers  {...this} />
+        <CommandBarCustomers  {...this} OnDeleteItems={this.deleteitems} />
         <Separator />
         <div className={classNames.controlWrapper}>
           <Stack >
             <TextField label="Search by name :" onChange={this._onChangeText} iconProps={{ iconName: 'search' }} styles={controlStyles} />
+            <PrimaryButton text="Delete multiple items" onClick={this._onDeleteClick} />
           </Stack>
 
         </div>
@@ -184,7 +202,7 @@ export class DetailsListCustomers extends React.Component<{}, IDetailsListCustom
           <DetailsList
             items={items}
             columns={columns}
-            selectionMode={SelectionMode.single}
+            selectionMode={SelectionMode.multiple}
             getKey={this._getKey}
             setKey="set"
             layoutMode={DetailsListLayoutMode.justified}
@@ -208,18 +226,51 @@ export class DetailsListCustomers extends React.Component<{}, IDetailsListCustom
     );
   }
 
+  private deleteitems() {
+    var result = confirm("Are you sure you want to delete this item?");
+    if (result) {
+
+      const count = this._selection.getSelectedCount();
+
+      for (let i = 0; i < count; i++) {
+        let selCustomer = (this._selection.getSelection()[i] as ICustomer);
+        this._customersDataProvider.deleteItem(selCustomer).then(() => {
+          const newItems = this.state.items.filter(item => item != selCustomer);
+          this.setState({ items: newItems });
+        });
+      }
+    }
+  }
 
   private _onDeleteClick = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> => {
 
     var result = confirm("Are you sure you want to delete this item?");
     if (result) {
+
+      const count = this._selection.getSelectedCount();
+
+      for (let i = 0; i < count; i++) {
+        let selCustomer = (this._selection.getSelection()[i] as ICustomer);
+        this._customersDataProvider.deleteItem(selCustomer).then(() => {
+          const newItems = this.state.items.filter(item => item != selCustomer);
+          this.setState({ items: newItems });
+        });
+      }
+    }
+
+  }
+
+  /*private _onDeleteClick = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> => {
+
+    var result = confirm("Are you sure you want to delete this item?");
+    if (result) {
       const { selectedCustomer } = this.state;
-      this._customersDataProvider.deleteItem(selectedCustomer).then(()=>{
+      this._customersDataProvider.deleteItem(selectedCustomer).then(() => {
         const newItems = this.state.items.filter(item => item != selectedCustomer);
         this.setState({ items: newItems });
       });
     }
-  }
+  }*/
 
 
   /*  private _onDeleteClick(item: any, value: any) : void {
@@ -236,7 +287,7 @@ export class DetailsListCustomers extends React.Component<{}, IDetailsListCustom
     const items: ICustomer[] = [];
     this._customersDataProvider.getItems().then((customers: ICustomer[]) => {
       customers.forEach(element => {
-        items.push({ name: element.name, key: element.key, value: element.value,contactnumber:element.contactnumber });
+        items.push({ name: element.name, key: element.key, value: element.value, contactnumber: element.contactnumber, designation: element.designation });
       });
       return customers;
 
@@ -272,7 +323,7 @@ export class DetailsListCustomers extends React.Component<{}, IDetailsListCustom
     const items: ICustomer[] = [];
     this._customersDataProvider.getItems().then((customers: ICustomer[]) => {
       customers.forEach(element => {
-        items.push({ name: element.name, key: element.key, value: element.value,contactnumber:element.contactnumber });
+        items.push({ name: element.name, key: element.key, value: element.value, contactnumber: element.contactnumber, designation: element.designation });
       });
       this.setState({ showEditCustomerPanel: false, items: items });
       this.setState({ showEditCustomerPanel: false });

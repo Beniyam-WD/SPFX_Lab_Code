@@ -3,24 +3,31 @@ import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar';
 import { ICustomersDataProvider } from '../sharePointDataProvider/ICustomersDataProvider';
 import { ICustomer } from '../Models/ICustomer';
 import { CustomersDataProvider } from '../sharePointDataProvider/CustomersDataProvider';
-import { PanelType, Panel } from 'office-ui-fabric-react';
+import { PanelType, Panel, IconButton } from 'office-ui-fabric-react';
 import FormCustomerCreate from '../create/FormCustomerCreate';
 export interface ICommandBarCustomerState {
-  isVisible: boolean;
+  isVisible?: boolean;
   customer: ICustomer;
   messageSended: boolean;
   customersDataProvider:ICustomersDataProvider;
   _goBack:VoidFunction;
-  _reload:VoidFunction;
+  _reload?:VoidFunction;
+
 }
-export class CommandBarCustomers extends React.Component<{}, ICommandBarCustomerState> {
+
+export type RemoveItemCallback = ()=>void;
+
+export interface ICommandBarCustomerProps{
+  OnDeleteItems:RemoveItemCallback;
+}
+export class CommandBarCustomers extends React.Component<ICommandBarCustomerProps,ICommandBarCustomerState, {} > {
 
   private  _customersDataProvider:ICustomersDataProvider;
   private  _customer:ICustomer;
   /**
    *Cosnstructor og CommandBarCustomers
    */
-  constructor(props) {
+  constructor(props:ICommandBarCustomerProps, state:ICommandBarCustomerState) {
     super(props);
     this._customersDataProvider=new CustomersDataProvider({});
     this.state = {
@@ -29,9 +36,12 @@ export class CommandBarCustomers extends React.Component<{}, ICommandBarCustomer
       customersDataProvider: this._customersDataProvider,
       messageSended: false,
       _goBack:this._hidePanel,
-      _reload:props.state._goBack,
+     // _reload:this.props.state._goBack,
+
     };
   }
+
+
 
   public render(): JSX.Element {
     return (
@@ -80,12 +90,12 @@ export class CommandBarCustomers extends React.Component<{}, ICommandBarCustomer
         }
       },
       {
-        key: 'share',
-        name: 'Menu 1',
+        key: 'delete',
+        name: 'Delete',
         iconProps: {
-          iconName: 'Share'
+          iconName: 'delete'
         },
-        onClick: () => alert('menu 1')
+        onClick: () => this.props.OnDeleteItems()
       },
       {
         key: 'share',
@@ -163,6 +173,8 @@ export class CommandBarCustomers extends React.Component<{}, ICommandBarCustomer
   private _hidePanel = () => {
     this.setState({ isVisible: false });
   }
+
+
 
 
 }
