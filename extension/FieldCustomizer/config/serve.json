@@ -1,0 +1,35 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+    "port": 4321,
+    "https": true,
+    "serveConfigurations": {
+        "default": {
+            "pageUrl": "https://jpower4mvp.sharepoint.com/sites/SPFxTraining/Lists/Orders/AllItems.aspx",
+            "fieldCustomizers": {
+                "Percentage": {
+                    "id": "1052338b-ed07-4316-9e1e-b28c81a83945",
+                    "properties": {
+                        "sampleText": "SPFx Training"
+                    }
+                },
+                "Status": {
+                    "id": "1052338b-ed07-4316-9e1e-b28c81a83945",
+                    "properties": {
+                        "sampleText": "SPFx Training"
+                    }
+                }
+            }
+        },
+        "myFieldCustomizer": {
+            "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+            "fieldCustomizers": {
+                "InternalFieldName": {
+                    "id": "1052338b-ed07-4316-9e1e-b28c81a83945",
+                    "properties": {
+                        "sampleText": "Value"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+    "port": 4321,
+    "https": true,
+    "serveConfigurations": {
+        "default": {
+            "pageUrl": "https://jpower4mvp.sharepoint.com/sites/IBMTraning2/sitepages/home.aspx",
+            "customActions": {
+                "624fb1a6-37c8-463d-b562-c913a73b6fbc": {
+                    "location": "ClientSideExtension.ApplicationCustomizer",
+                    "properties": {
+                        "Top": "Top Header",
+                        "Bottom": "Bottom footer"
+                    }
+                }
+            }
+        },
+        "myAppCustomizer": {
+            "pageUrl": "https://jpower4mvp.sharepoint.com/sites/IBMTraning2/sitepages/home.aspx",
+            "customActions": {
+                "624fb1a6-37c8-463d-b562-c913a73b6fbc": {
+                    "location": "ClientSideExtension.ApplicationCustomizer",
+                    "properties": {
+                        "testMessage": "Test message"
+                    }
+                }
+            }
+        }
+    }
+}
