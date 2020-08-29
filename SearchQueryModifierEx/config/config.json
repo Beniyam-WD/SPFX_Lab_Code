@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "my-search-query-modifier-search-query-modifier": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/mySearchQueryModifier/MySearchQueryModifierSearchQueryModifier.js",
+          "manifest": "./src/extensions/mySearchQueryModifier/MySearchQueryModifierSearchQueryModifier.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "MySearchQueryModifierSearchQueryModifierStrings": "lib/extensions/mySearchQueryModifier/loc/{locale}.js"
+  }
+}

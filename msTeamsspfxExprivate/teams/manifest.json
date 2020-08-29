@@ -1,0 +1,40 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.7",
+    "version": "1.0.0",
+    "id": "497bf76d-bcea-4a17-9ad8-e268fd6f7961",
+    "packageName": "JPOWER4",
+    "developer": {
+        "name": "JPOWER4",
+        "websiteUrl": "https://github.com/jenkinsns",
+        "privacyUrl": "https://github.com/jenkinsns",
+        "termsOfUseUrl": "https://github.com/jenkinsns"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "PrivateChannelApp",
+        "full": "Private Channel App for team and SPFx"
+    },
+    "description": {
+        "short": "My app for private channel",
+        "full": "Private channel app"
+    },
+    "accentColor": "#FFFFFF",
+    "configurableTabs": [{
+        "configurationUrl": "https://{teamSiteDomain}{teamSitePath}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest={teamSitePath}/_layouts/15/teamshostedapp.aspx%3FopenPropertyPane=true%26teams%26componentId={{SPFX_COMPONENT_ID}}%26forceLocale={locale}",
+        "canUpdateConfiguration": true,
+        "scopes": [
+            "team"
+        ]
+    }],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "jpower4mvp.sharepoint.com"
+    ]
+}
