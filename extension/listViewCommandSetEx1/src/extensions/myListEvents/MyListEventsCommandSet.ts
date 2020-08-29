@@ -53,6 +53,7 @@ export default class MyListEventsCommandSet extends BaseListViewCommandSet<IMyLi
 
   @override
   public onExecute(event: IListViewCommandSetExecuteEventParameters): void {
+    let title = "";
     switch (event.itemId) {
       case 'GetItemButton':
         Dialog.alert(`${event.selectedRows[0].getValueByName("Title")}`);
@@ -64,11 +65,23 @@ export default class MyListEventsCommandSet extends BaseListViewCommandSet<IMyLi
         this.multipleitemsevent(event);
        break;
        case 'DeleteButton':
-        Dialog.alert(`I am always available`);
+        Dialog.prompt(`Please enter the list name to move:`).then((value:string)=>
+        {
+          title = value;
+          this.sendvalue(title,event);
+        }
+        );
+
        break;
       default:
         throw new Error('Unknown command');
     }
+  }
+
+  private sendvalue(title:string,event:IListViewCommandSetExecuteEventParameters)
+  {
+    let selectedtitle = event.selectedRows[0].getValueByName("Title");
+    Dialog.alert(title + "|" + selectedtitle);
   }
 
   private multipleitemsevent(event:IListViewCommandSetExecuteEventParameters)
