@@ -1,0 +1,40 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx/command-set-extension-manifest.schema.json",
+
+    "id": "8046b99b-7033-4fcd-978e-98106c293e8a",
+    "alias": "MyListEventsCommandSet",
+    "componentType": "Extension",
+    "extensionType": "ListViewCommandSet",
+
+    // The "*" signifies that the version should be taken from the package.json
+    "version": "*",
+    "manifestVersion": 2,
+
+    // If true, the component can only be installed on sites where Custom Script is allowed.
+    // Components that allow authors to embed arbitrary script code should set this to true.
+    // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+    "requiresCustomScript": false,
+
+    "items": {
+        "GetItemButton": {
+            "title": { "default": "Get Item" },
+            "iconImageUrl": "icons/request.png",
+            "type": "command"
+        },
+        "AlertMessageButton": {
+            "title": { "default": "No Items Selected" },
+            "iconImageUrl": "icons/cancel.png",
+            "type": "command"
+        },
+        "MultipleItemsButton": {
+            "title": { "default": "Multiple Items" },
+            "iconImageUrl": "icons/cancel.png",
+            "type": "command"
+        },
+        "DeleteButton": {
+            "title": { "default": "My Delete Button" },
+            "iconImageUrl": "icons/cancel.png",
+            "type": "command"
+        }
+    }
+}
