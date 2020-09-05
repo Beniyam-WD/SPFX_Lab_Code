@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "teamsmulti-tab-sp-fx-client-side-solution",
+    "id": "b51b0065-6e73-483f-9dc8-e76e779ab1c5",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/teamsmulti-tab-sp-fx.sppkg"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.10.0",
+    "libraryName": "specificlist-cs",
+    "libraryId": "48ca05cb-c640-47cf-b1d4-209246735f4a",
+    "packageManager": "npm",
+    "isDomainIsolated": false,
+    "componentType": "extension",
+    "extensionType": "ListViewCommandSet"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "consume-custom-library-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/consumeCustomLibrary/ConsumeCustomLibraryWebPart.js",
+          "manifest": "./src/webparts/consumeCustomLibrary/ConsumeCustomLibraryWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ConsumeCustomLibraryWebPartStrings": "lib/webparts/consumeCustomLibrary/loc/{locale}.js"
+  }
+}

@@ -1,0 +1,61 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.7",
+    "version": "1.0.0",
+    "id": "bd6bb4cb-b966-4cb6-ac92-a7f1919a52d0",
+    "packageName": "multitab",
+    "developer": {
+        "name": "JPOWER4",
+        "websiteUrl": "https://github.com/jenkinsns",
+        "privacyUrl": "https://github.com/jenkinsns",
+        "termsOfUseUrl": "https://github.com/jenkinsns"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "MultiTab SPfx Webpart",
+        "full": "Multi Tab SharePoint Framework Web part"
+    },
+    "description": {
+        "short": "Desc Multi Tab SPfx Webpart",
+        "full": "Description Multi Tab SharePoint Webpart"
+    },
+    "accentColor": "#FFFFFF",
+    "staticTabs": [{
+            "entityId": "10003",
+            "name": "Services",
+            "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId={8294e940-279c-4409-b097-d211924f50c1}%26forceLocale={locale}",
+            "websiteUrl": "https://github.com/jenkinsns",
+            "scopes": [
+                "personal"
+            ]
+        },
+        {
+            "entityId": "10002",
+            "name": "Technology",
+            "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId={974bc228-329c-499c-b8d8-bad4cd052805}%26forceLocale={locale}",
+            "websiteUrl": "https://github.com/jenkinsns",
+            "scopes": [
+                "personal"
+            ]
+        },
+        {
+            "entityId": "10001",
+            "name": "Products",
+            "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId={591d7fd6-40c9-486c-aabe-241c64d13f9a}%26forceLocale={locale}",
+            "websiteUrl": "https://github.com/jenkinsns",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "*.login.microsoftonline.com", "*.sharepoint.com", "*.sharepoint-df.com", "spoppe-a.akamaihd.net", "spoprod-a.akamaihd.net", "resourceseng.blob.core.windows.net", "msft.spoppe.com"
+    ]
+}

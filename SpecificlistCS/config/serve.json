@@ -1,0 +1,31 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+    "port": 4321,
+    "https": true,
+    "serveConfigurations": {
+        "default": {
+            "pageUrl": "https://jpower4mvp.sharepoint.com/sites/SPFxExtension/Lists/Mylist/AllItems.aspx",
+            "customActions": {
+                "6ba85192-c1b2-4a00-97e0-dbdc73fb9efe": {
+                    "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
+                    "properties": {
+                        "sampleTextOne": "One item is selected in the list",
+                        "sampleTextTwo": "This command is always visible."
+                    }
+                }
+            }
+        },
+        "specificListViewCs": {
+            "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+            "customActions": {
+                "6ba85192-c1b2-4a00-97e0-dbdc73fb9efe": {
+                    "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
+                    "properties": {
+                        "sampleTextOne": "One item is selected in the list",
+                        "sampleTextTwo": "This command is always visible."
+                    }
+                }
+            }
+        }
+    }
+}

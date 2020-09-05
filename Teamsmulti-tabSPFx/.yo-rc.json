@@ -1,0 +1,12 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": false,
+    "environment": "spo",
+    "version": "1.10.0",
+    "libraryName": "teamsmulti-tab-sp-fx",
+    "libraryId": "b51b0065-6e73-483f-9dc8-e76e779ab1c5",
+    "packageManager": "npm",
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

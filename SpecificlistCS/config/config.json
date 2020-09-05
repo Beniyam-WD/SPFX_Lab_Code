@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "specific-list-view-cs-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/specificListViewCs/SpecificListViewCsCommandSet.js",
+          "manifest": "./src/extensions/specificListViewCs/SpecificListViewCsCommandSet.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpecificListViewCsCommandSetStrings": "lib/extensions/specificListViewCs/loc/{locale}.js"
+  }
+}
