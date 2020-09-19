@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "external-library-withreact-client-side-solution",
+    "id": "d32ca4dc-e7b4-4c29-9edc-9c5778591bcf",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/external-library-withreact.sppkg"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "firstreactroutersolu-client-side-solution",
+    "id": "1b4f0d60-9bd7-4a97-92ac-3bf78dee4d04",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/firstreactroutersolu.sppkg"
+  }
+}
