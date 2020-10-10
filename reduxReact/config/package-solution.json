@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "redux-react-client-side-solution",
+    "id": "56fd352c-bdd9-48f0-9eef-bbc6a0c036d5",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/redux-react.sppkg"
+  }
+}

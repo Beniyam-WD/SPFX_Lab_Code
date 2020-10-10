@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "counter-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/counter/CounterWebPart.js",
+          "manifest": "./src/webparts/counter/CounterWebPart.manifest.json"
+        }
+      ]
+    },
+    "redux-example-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/reduxExample/ReduxExampleWebPart.js",
+          "manifest": "./src/webparts/reduxExample/ReduxExampleWebPart.manifest.json"
+        }
+      ]
+    },
+    "avatar-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/avatar/AvatarWebPart.js",
+          "manifest": "./src/webparts/avatar/AvatarWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CounterWebPartStrings": "lib/webparts/counter/loc/{locale}.js",
+    "ReduxExampleWebPartStrings": "lib/webparts/reduxExample/loc/{locale}.js",
+    "AvatarWebPartStrings": "lib/webparts/avatar/loc/{locale}.js"
+  }
+}
