@@ -1,0 +1,31 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+    "port": 4321,
+    "https": true,
+    "serveConfigurations": {
+        "default": {
+            "pageUrl": "https://jpower4mvp.sharepoint.com/sites/SPFxtraining01/Lists/CommandSetEx/AllItems.aspx",
+            "customActions": {
+                "7c1c22d1-e1c9-4f7d-ac5d-d08033dd88e8": {
+                    "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
+                    "properties": {
+                        "sampleTextOne": "One item is selected in the list",
+                        "sampleTextTwo": "This command is always visible."
+                    }
+                }
+            }
+        },
+        "spFxListCustomMenu": {
+            "pageUrl": "https://jpower4mvp.sharepoint.com/sites/SPFxtraining01/Lists/CommandSetEx/AllItems.aspx",
+            "customActions": {
+                "7c1c22d1-e1c9-4f7d-ac5d-d08033dd88e8": {
+                    "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
+                    "properties": {
+                        "sampleTextOne": "One item is selected in the list",
+                        "sampleTextTwo": "This command is always visible."
+                    }
+                }
+            }
+        }
+    }
+}
