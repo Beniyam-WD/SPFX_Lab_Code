@@ -1,0 +1,12 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": false,
+    "environment": "spo",
+    "version": "1.10.0",
+    "libraryName": "bootstrap-styles",
+    "libraryId": "95f9c2b9-0ef1-4464-9376-3f873207d291",
+    "packageManager": "npm",
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
